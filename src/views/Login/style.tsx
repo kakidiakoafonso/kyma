@@ -19,7 +19,8 @@ header:{
     width: '100%',
     alignItems:'flex-end',
     zIndex:1,
-    paddingVertical:10
+    paddingVertical:10,
+    top: 0
 },
 TextHeader:{
     color: cores.grey,
@@ -91,8 +92,7 @@ footer:{
     height: '10%'
 },
 logo:{
-    fontSize:45,
-    color:cores.vermelho
+    width:'50%',height:100
 },
 icons:{
     color: cores.grey,

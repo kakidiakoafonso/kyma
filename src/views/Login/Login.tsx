@@ -1,24 +1,30 @@
+import { useNavigation } from '@react-navigation/native'
 import { Icon, Separator } from 'native-base'
 import React from 'react'
-import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView,Image} from 'react-native'
 import style from './style'
 
 export default function Login() 
 {
+    const navigation = useNavigation()
     return (
         <View style={style.container}>
+            
+
+            <View style={style.sombra}>
+
             <View style={style.header}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate('cadastro')}>
                     <Text style={style.TextHeader}>
                         Registrar
                     </Text>
                 </TouchableOpacity>
             </View>
 
-            <View style={style.sombra}>
                 <View style={style.wrapper}>
                     <View style={style.dataContainerView}>
-                        <Text style={style.logo}>Kyma</Text>
+                       <Image source={require('../../assets/img/Kyma1.png')}
+                            style={style.logo}/>
                     </View>
                     <KeyboardAvoidingView behavior="padding" style={style.dataContainerView}>
                         <View style={style.inputView}>
@@ -37,7 +43,8 @@ export default function Login()
                                 <View style={style.separador}/>
                             </View>
                             <TextInput
-                            placeholder="Email"
+                            placeholder="senha"
+                            secureTextEntry
                             style={style.inputs}
                         />
                         </View>
@@ -52,7 +59,7 @@ export default function Login()
                     </KeyboardAvoidingView>
 
                     <View style={style.dataContainerView}>
-                        <TouchableOpacity style={style.btnEntrar}>
+                        <TouchableOpacity style={style.btnEntrar} onPress={()=>navigation.navigate('cadastro')}>
                             <Icon name='arrowright' type='AntDesign' style={style.btnEntrarIcon}/>
                             <Text style={style.txtEntrar}>ENTRAR</Text>
                         </TouchableOpacity>
