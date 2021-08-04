@@ -144,9 +144,11 @@ inputWrapperView:{
     width: '90%'
 },
 image:{
-    width: 120,height:120,
-    borderRadius:60,
-    backgroundColor:cores.grey
+    width: '27%',height:'70%',
+    borderRadius:63,
+    backgroundColor:cores.grey,
+    borderWidth:10,
+    borderColor:'rgba(204, 204, 204,0.6)'
 },
 txtTipoCadastro:{
     color: cores.grey,

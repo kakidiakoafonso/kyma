@@ -1,10 +1,9 @@
 import React from 'react'
-import { Image } from 'react-native'
+import { Image ,Dimensions} from 'react-native'
 
-export default function Splash() {
+export default function Splash() 
+{
     return (
-        <Image source={require('../../assets/img/1.png')} style={{flex:1}}
-             resizeMode='contain'
-        />
+        <Image source={require('../../assets/img/1.png')} style={{flex:1}}/>
     )
 }

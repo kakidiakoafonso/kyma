@@ -17,10 +17,12 @@ header:{
     height: 50,
     position: 'absolute',
     width: '100%',
-    alignItems:'flex-end',
+    alignItems:'center',
     zIndex:1,
-    paddingVertical:10,
-    top: 0
+    flexDirection:'row',
+    justifyContent:'space-between',
+    paddingHorizontal:15,
+    top: 0,
 },
 TextHeader:{
     color: cores.grey,
@@ -35,7 +37,7 @@ dataContainerView:{
     height: '30%',
     width: '90%',
     alignItems:'center',
-    justifyContent:'space-evenly'
+    justifyContent:'center',
 
 },
 btnEntrar:{
@@ -60,7 +62,8 @@ inputView:{
     flexDirection:'row',
     height: 65, justifyContent:'center',
     paddingHorizontal:4,
-    marginVertical:15
+    marginVertical:15,
+    marginBottom:'15%'
 },
 iconSeparatorContainer:{
     flexDirection:'row',   

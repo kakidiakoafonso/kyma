@@ -4,6 +4,15 @@ import React from 'react'
 import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView ,Image} from 'react-native'
 import style from './style'
 
+//SVG's
+import UserIcon from '../../assets/svg/user-profile.svg'
+import LockIcon from '../../assets/svg/padlock.svg'
+import NifIcon from '../../assets/svg/edit.svg'
+import TelefoneIcon from '../../assets/svg/telephone.svg'
+import EmailIcon from '../../assets/svg/email.svg'
+import EnderecoIcon from '../../assets/svg/place.svg'
+
+
 export default function Login() 
 {
     const navigation = useNavigation()
@@ -28,7 +37,8 @@ export default function Login()
                 
                 <View style={style.logoView}>
                     <View style={style.image}>
-
+                        <Image source={require('../../assets/img/fotoIcon.png')}
+                        style={{width:'100%',height:'100%'}}/>
                     </View>
                     <Text style={style.txtFoto}>
                         Carregar foto em PNG ou JPG
@@ -44,8 +54,9 @@ export default function Login()
 
                          <View style={style.inputView2}>
                                 <View style={style.iconSeparatorContainer2}>
-                                    <Icon name='person-outline' type='Ionicons'  style={[style.icons,{marginLeft:'45%'}]}/>
-                                   
+                                    <View style={{marginLeft:'45%'}}>
+                                        <UserIcon width={20} height={20}/>
+                                    </View>
                                     <View style={style.separador}/>
                                 </View>
                                 <TextInput
@@ -56,7 +67,9 @@ export default function Login()
 
                          <View style={style.inputView2}>
                                 <View style={style.iconSeparatorContainer2}>
-                                    <Icon name='person-outline' type='Ionicons'  style={[style.icons,{marginLeft:'45%'}]}/>
+                                    <View style={{marginLeft:'45%'}}>
+                                        <UserIcon width={20} height={20}/>
+                                    </View>
                                     <View style={style.separador}/>
                                 </View>
                                 <TextInput
@@ -70,7 +83,7 @@ export default function Login()
                        </View>
                         <View style={style.inputView}>
                             <View style={style.iconSeparatorContainer}>
-                                <Icon name='person-outline' type='Ionicons'  style={style.icons}/>
+                                <NifIcon width={20} height={20}/>
                                 <View style={style.separador}/>
                             </View>
                             <TextInput
@@ -80,7 +93,7 @@ export default function Login()
                         </View>
                         <View style={style.inputView}>
                             <View style={style.iconSeparatorContainer}>
-                                <Icon name='person-outline' type='Ionicons'  style={style.icons}/>
+                                <TelefoneIcon width={20} height={20}/>
                                 <View style={style.separador}/>
                             </View>
                             <TextInput
@@ -90,7 +103,7 @@ export default function Login()
                         </View>
                         <View style={style.inputView}>
                             <View style={style.iconSeparatorContainer}>
-                                <Icon name='person-outline' type='Ionicons'  style={style.icons}/>
+                                <EmailIcon width={20} height={20}/>  
                                 <View style={style.separador}/>
                             </View>
                             <TextInput
@@ -100,7 +113,7 @@ export default function Login()
                         </View>
                         <View style={style.inputView}>
                             <View style={style.iconSeparatorContainer}>
-                                <Icon name='person-outline' type='Ionicons'  style={style.icons}/>
+                                <EnderecoIcon width={20} height={20}/>
                                 <View style={style.separador}/>
                             </View>
                             <TextInput
@@ -110,7 +123,7 @@ export default function Login()
                         </View>
                         <KeyboardAvoidingView style={style.inputView}>
                             <View style={style.iconSeparatorContainer}>
-                                <Icon name='person-outline' type='Ionicons'  style={style.icons}/>
+                                <LockIcon width={20} height={20}/>
                                 <View style={style.separador}/>
                             </View>
                             <TextInput
@@ -121,7 +134,8 @@ export default function Login()
                         </KeyboardAvoidingView>
                         
                     </View>
-                        <TouchableOpacity style={style.btnCadastrar}>
+                        <TouchableOpacity style={style.btnCadastrar}
+                            onPress={()=>navigation.navigate('aberturacaixa')}>
                             <Icon name='arrowright' type='AntDesign' style={style.btnEntrarIcon}/>
                             <Text style={style.txtEntrar}>CADASTRAR</Text>
                         </TouchableOpacity>
@@ -139,21 +153,3 @@ export default function Login()
         </View>
     )
 }
-
-
-
-{/* <TouchableOpacity style={style.btnEntrar}>
-<Icon name='arrowright' type='AntDesign' style={style.btnEntrarIcon}/>
-<Text style={style.txtEntrar}>ENTRAR</Text>
-</TouchableOpacity>
-
-<View style={style.inputView}>
-                            <View style={style.iconSeparatorContainer}>
-                                <Icon name='person-outline' type='Ionicons'  style={style.icons}/>
-                                <View style={style.separador}/>
-                            </View>
-                            <TextInput
-                            placeholder="Email"
-                            style={style.inputs}
-                        />
-                        </View> */}

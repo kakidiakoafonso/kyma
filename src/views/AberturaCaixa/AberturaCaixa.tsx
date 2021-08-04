@@ -1,15 +1,17 @@
 import { useNavigation } from '@react-navigation/native'
 import { Icon, Separator } from 'native-base'
-import React from 'react'
+import React,{useState} from 'react'
 import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView,Image} from 'react-native'
 import style from './style'
 
 //SVG's
 import UserIcon from '../../assets/svg/user-profile.svg'
 import LockIcon from '../../assets/svg/padlock.svg'
+import AberturaModal from '../../component/AberturaModal/AberturaModal'
 
-export default function Login() 
+export default function AberturaCaixa() 
 {
+    const [modalShow, setmodalShow] = useState(false);
     const navigation = useNavigation()
     return (
         <View style={style.container}>
@@ -18,7 +20,13 @@ export default function Login()
             <View style={style.sombra}>
 
             <View style={style.header}>
-                <TouchableOpacity onPress={()=>navigation.navigate('cadastro')}>
+                <TouchableOpacity  style={{width:80,height:30,
+                    justifyContent:'center',}} onPress={()=>navigation.goBack()}>
+                        <Icon name='arrowleft' type='AntDesign'  style={style.icons}/>
+                </TouchableOpacity>
+                <TouchableOpacity  style={{ width:80,height:30,
+                        justifyContent:'center',
+                        alignItems:'center'}}>
                     <Text style={style.TextHeader}>
                         Registrar
                     </Text>
@@ -31,7 +39,7 @@ export default function Login()
                             style={style.logo}/>
                     </View>
                     
-                    <KeyboardAvoidingView behavior="padding" style={style.dataContainerView}>
+                    <KeyboardAvoidingView behavior="padding" style={[style.dataContainerView,{height:'70%'}]}>
                         <View style={style.inputView}>
                             <View style={style.iconSeparatorContainer}>
                                 <UserIcon width={20} height={20}/>
@@ -42,34 +50,15 @@ export default function Login()
                             style={style.inputs}
                         />
                         </View>
-                        <View style={style.inputView}>
-                            <View style={style.iconSeparatorContainer}>
-                                <LockIcon width={20} height={20}/>
-                                <View style={style.separador}/>
-                            </View>
-                            <TextInput
-                            placeholder="senha"
-                            secureTextEntry
-                            style={style.inputs}
-                        />
-                        </View>
-                        <View style={style.esqueceuSenhaView}>
-                            <Text style={style.TextHeader}>
-                                Esqueceu a senha?
-                            </Text>
-                            <Text style={style.esqueceuSenhaTxt}>
-                                clica aqui
-                            </Text>
-                        </View>
-                    </KeyboardAvoidingView>
 
-                    <View style={style.dataContainerView}>
-                        <TouchableOpacity style={style.btnEntrar} >
+                        <TouchableOpacity style={style.btnEntrar} onPress={()=>setmodalShow(true)}
+                        activeOpacity={0.6}>
                             <Icon name='arrowright' type='AntDesign' style={style.btnEntrarIcon}/>
                             <Text style={style.txtEntrar}>ENTRAR</Text>
                         </TouchableOpacity>
-                       
-                    </View>
+                    </KeyboardAvoidingView>
+
+        
                 </View>
             </View>
             <View style={style.footer}>
@@ -77,6 +66,7 @@ export default function Login()
                         2021 | Todos os direitos reservado
                     </Text>
             </View>
+            <AberturaModal visivel={modalShow} set={setmodalShow}/>
         </View>
     )
 }
