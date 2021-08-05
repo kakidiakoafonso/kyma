@@ -1,8 +1,10 @@
 import { useNavigation } from '@react-navigation/native'
 import { Icon, Separator } from 'native-base'
 import React from 'react'
-import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView ,Image} from 'react-native'
-import style from './style'
+import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView ,
+Image,Dimensions} from 'react-native'
+import max from './MaxStyle'
+import min from './Minstyle'
 
 //SVG's
 import UserIcon from '../../assets/svg/user-profile.svg'
@@ -15,6 +17,9 @@ import EnderecoIcon from '../../assets/svg/place.svg'
 
 export default function Login() 
 {
+    const {height} = Dimensions.get('screen')
+    const style = height > 640 ? max:min
+
     const navigation = useNavigation()
     return (
         <View style={style.container}>
@@ -45,7 +50,7 @@ export default function Login()
                     </Text>
                 </View>
 
-                <View style={style.WrapperView}>
+                <KeyboardAvoidingView style={style.WrapperView}>
                     <Text style={style.txtTipoCadastro}>
                         TIPO DE CADASTRO 
                     </Text>
@@ -121,7 +126,7 @@ export default function Login()
                             style={style.inputs}
                         />
                         </View>
-                        <KeyboardAvoidingView style={style.inputView}>
+                        <View style={style.inputView}>
                             <View style={style.iconSeparatorContainer}>
                                 <LockIcon width={20} height={20}/>
                                 <View style={style.separador}/>
@@ -131,16 +136,18 @@ export default function Login()
                             secureTextEntry
                             style={style.inputs}
                         />
-                        </KeyboardAvoidingView>
+                        </View>
+                        
                         
                     </View>
+                    
                         <TouchableOpacity style={style.btnCadastrar}
                             onPress={()=>navigation.navigate('aberturacaixa')}>
                             <Icon name='arrowright' type='AntDesign' style={style.btnEntrarIcon}/>
                             <Text style={style.txtEntrar}>CADASTRAR</Text>
                         </TouchableOpacity>
                    
-                </View>
+                </KeyboardAvoidingView>
 
             </View>
 

@@ -106,7 +106,7 @@ iconSeparatorContainer2:{
 },
 separador:{
     height:'80%',
-    width:0.9,
+    width:0.4,
     backgroundColor:cores.grey
 },
 inputs:{

@@ -1,8 +1,11 @@
 import { useNavigation } from '@react-navigation/native'
 import { Icon, Separator } from 'native-base'
 import React from 'react'
-import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView,Image} from 'react-native'
-import style from './style'
+import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView,Image,
+Dimensions} from 'react-native'
+
+import max from './MaxStyle'
+import min from './MinStyle'
 
 //SVG's
 import UserIcon from '../../assets/svg/user-profile.svg'
@@ -10,6 +13,8 @@ import LockIcon from '../../assets/svg/padlock.svg'
 
 export default function Login() 
 {
+    const {height} = Dimensions.get('screen')
+    const style = height > 640 ? max:min
     const navigation = useNavigation()
     return (
         <View style={style.container}>

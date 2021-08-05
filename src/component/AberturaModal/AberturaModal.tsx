@@ -1,11 +1,13 @@
 import { useNavigation } from '@react-navigation/native'
 import { Icon } from 'native-base'
 import React from 'react'
-import { View, Text ,Modal,TouchableOpacity} from 'react-native'
+import { View, Text ,Modal,TouchableOpacity,Dimensions} from 'react-native'
 import cores from '../../config/cores'
 
 export default function AberturaModal({visivel,set}:{visivel : any ,set: any}) 
 {
+    const {height} = Dimensions.get('screen')
+    const big : boolean =  height > 640 
     const navigation = useNavigation()
     return (
         <Modal visible={visivel} transparent animationType='slide'>
@@ -13,10 +15,10 @@ export default function AberturaModal({visivel,set}:{visivel : any ,set: any})
                 backgroundColor:'rgba(128,128,128, 0.6)'}}>
                 <View style={{width:'70%',height:'30%',backgroundColor:'#f2f2f2',borderRadius:20}}>
                     <View style={{width:'100%',backgroundColor:cores.grey,alignItems:'flex-end',
-                        height:'18%',justifyContent:'center',borderTopRightRadius:20,borderTopLeftRadius:20}}>
-                        <View style={{flexDirection:'row',width:'70%',
+                        height:big ?'18%':'20%',justifyContent:'center',borderTopRightRadius:20,borderTopLeftRadius:20}}>
+                        <View style={{flexDirection:'row',width:big ?'70%':'75%',
                             justifyContent:'space-between',marginRight:10,alignItems:'center'}}>
-                            <Text style={{fontSize:20,color:'#CfCFCF'}}>
+                            <Text style={{fontSize:big ?20:15,color:'#CfCFCF'}}>
                                 ABERTURA DA CAIXA
                             </Text>
                             <TouchableOpacity onPress={()=>set(false)} activeOpacity={0.6}>
@@ -25,10 +27,10 @@ export default function AberturaModal({visivel,set}:{visivel : any ,set: any})
                         </View>
                     </View>
 
-                    <View style={{width:'100%',height:'82%',justifyContent:'center',alignItems:'center'}}>
+                    <View style={{width:'100%',height:big ?'82%':'80%',justifyContent:'center',alignItems:'center'}}>
                         <View style={{
                             backgroundColor:cores.grey,
-                            height: 65, width: '90%',
+                            height: big ?65:50, width: '90%',
                             borderRadius:30,alignItems:'center',
                             justifyContent:'center',
                             flexDirection:'row',
@@ -39,7 +41,7 @@ export default function AberturaModal({visivel,set}:{visivel : any ,set: any})
 
                         <TouchableOpacity style={{
                             backgroundColor:cores.vermelho,
-                            height: 65, width: '90%',
+                            height: big ? 65:50, width: '90%',
                             borderRadius:30,alignItems:'center',
                             justifyContent:'center',
                             flexDirection:'row'

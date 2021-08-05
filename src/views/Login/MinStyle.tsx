@@ -1,10 +1,6 @@
 import {StyleSheet} from "react-native";
 import cores from "../../config/cores";
-import {Dimensions} from "react-native";
 
-
-const {height} = Dimensions.get('screen')
-const big : boolean =  height > 640 
 const style =  StyleSheet.create({
 container:{
     flex: 1,
@@ -21,32 +17,30 @@ header:{
     height: 50,
     position: 'absolute',
     width: '100%',
-    alignItems:'center',
+    alignItems:'flex-end',
     zIndex:1,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    paddingHorizontal:15,
-    top: 0,
+    paddingVertical:10,
+    top: 0
 },
 TextHeader:{
     color: cores.grey,
     marginRight:10
 },
 sombra:{
-    width:'100%',height: '90%',elevation:1,
+    width:'100%',height: '85%',elevation:1,
     borderBottomRightRadius:30,
-    justifyContent:'center',alignItems:'center'
+    justifyContent:'center',alignItems:'center',
 },
 dataContainerView:{
     height: '30%',
     width: '90%',
     alignItems:'center',
-    justifyContent:'center',
+    justifyContent:'space-evenly'
 
 },
 btnEntrar:{
     backgroundColor:cores.vermelho,
-    height: big ?65:55, width: '90%',
+    height: 50, width: '90%',
     borderRadius:30,alignItems:'center',
     justifyContent:'center',
     flexDirection:'row'
@@ -64,10 +58,9 @@ inputView:{
     backgroundColor:'#f2f2f2',
     width: '90%', borderRadius:5,
     flexDirection:'row',
-    height: big ? 65:50, justifyContent:'center',
+    height: 50, justifyContent:'center',
     paddingHorizontal:4,
-    marginVertical:15,
-    marginBottom:'15%'
+    marginVertical:15
 },
 iconSeparatorContainer:{
     flexDirection:'row',   
@@ -77,7 +70,7 @@ iconSeparatorContainer:{
 },
 separador:{
     height:'80%',
-    width:0.6,
+    width:0.4,
     backgroundColor:cores.grey
 },
 inputs:{
@@ -96,10 +89,10 @@ footer:{
     width: '100%',
     justifyContent:'center',
     alignItems:'center',
-    height: '10%'
+    height: '15%'
 },
 logo:{
-    width:'50%',height:big?100:60
+    width:'50%',height:60
 },
 icons:{
     color: cores.grey,

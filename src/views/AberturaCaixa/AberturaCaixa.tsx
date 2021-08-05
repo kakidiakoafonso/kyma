@@ -1,7 +1,8 @@
 import { useNavigation } from '@react-navigation/native'
 import { Icon, Separator } from 'native-base'
 import React,{useState} from 'react'
-import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView,Image} from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView,Image,
+Dimensions} from 'react-native'
 import style from './style'
 
 //SVG's
@@ -11,7 +12,8 @@ import AberturaModal from '../../component/AberturaModal/AberturaModal'
 
 export default function AberturaCaixa() 
 {
-    const [modalShow, setmodalShow] = useState(false);
+    const [modalShow, setmodalShow] = useState(false)
+    
     const navigation = useNavigation()
     return (
         <View style={style.container}>
