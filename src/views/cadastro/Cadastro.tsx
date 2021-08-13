@@ -1,8 +1,9 @@
 import { useNavigation } from '@react-navigation/native'
-import { Icon, Separator } from 'native-base'
+import { Icon} from 'native-base'
 import React from 'react'
-import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView ,
+import { View, Text, TouchableOpacity, TextInput,
 Image,Dimensions} from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import max from './MaxStyle'
 import min from './Minstyle'
 
@@ -22,7 +23,9 @@ export default function Login()
 
     const navigation = useNavigation()
     return (
-        <View style={style.container}>
+        <View 
+        
+        style={style.container}>
             
 
             <View style={style.sombra}>
@@ -32,8 +35,7 @@ export default function Login()
                 <TouchableOpacity  style={style.btnVoltar} onPress={()=>navigation.goBack()}>
                         <Icon name='arrowleft' type='AntDesign'  style={style.icons}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>console.warn("AA")}
-                    style={style.btnEntrar}>
+                <TouchableOpacity style={style.btnEntrar}>
                     <Text style={style.TextHeader}>
                         Entrar
                     </Text>
@@ -50,11 +52,13 @@ export default function Login()
                     </Text>
                 </View>
 
-                <KeyboardAvoidingView style={style.WrapperView}>
+                <View
+                style={style.WrapperView}>
                     <Text style={style.txtTipoCadastro}>
                         TIPO DE CADASTRO 
                     </Text>
-                    <View style={style.inputWrapperView}>
+                    <KeyboardAwareScrollView
+                        style={style.inputWrapperView}>
                        <View style={style.nomeSobrenomeView}>
 
                          <View style={style.inputView2}>
@@ -103,6 +107,7 @@ export default function Login()
                             </View>
                             <TextInput
                             placeholder="Telefone"
+                            keyboardType='phone-pad'
                             style={style.inputs}
                         />
                         </View>
@@ -113,6 +118,7 @@ export default function Login()
                             </View>
                             <TextInput
                             placeholder="E-mail"
+                            keyboardType='email-address'
                             style={style.inputs}
                         />
                         </View>
@@ -139,15 +145,16 @@ export default function Login()
                         </View>
                         
                         
-                    </View>
-                    
-                        <TouchableOpacity style={style.btnCadastrar}
+                    </KeyboardAwareScrollView>
+                    <TouchableOpacity style={style.btnCadastrar}
                             onPress={()=>navigation.navigate('aberturacaixa')}>
                             <Icon name='arrowright' type='AntDesign' style={style.btnEntrarIcon}/>
                             <Text style={style.txtEntrar}>CADASTRAR</Text>
-                        </TouchableOpacity>
+                    </TouchableOpacity>
+                    
+                        
                    
-                </KeyboardAvoidingView>
+                </View>
 
             </View>
 

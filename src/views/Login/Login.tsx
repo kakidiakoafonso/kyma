@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Icon, Separator } from 'native-base'
 import React from 'react'
 import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView,Image,
-Dimensions} from 'react-native'
+Dimensions,Platform} from 'react-native'
 
 import max from './MaxStyle'
 import min from './MinStyle'
@@ -17,7 +17,9 @@ export default function Login()
     const style = height > 640 ? max:min
     const navigation = useNavigation()
     return (
-        <View style={style.container}>
+        <View 
+        
+        style={style.container}>
             
 
             <View style={style.sombra}>
@@ -36,7 +38,7 @@ export default function Login()
                             style={style.logo}/>
                     </View>
                     
-                    <KeyboardAvoidingView behavior="padding" style={style.dataContainerView}>
+                    <View style={style.dataContainerView}>
                         <View style={style.inputView}>
                             <View style={style.iconSeparatorContainer}>
                                 <UserIcon width={20} height={20}/>
@@ -66,7 +68,7 @@ export default function Login()
                                 clica aqui
                             </Text>
                         </View>
-                    </KeyboardAvoidingView>
+                    </View>
 
                     <View style={style.dataContainerView}>
                         <TouchableOpacity style={style.btnEntrar} >

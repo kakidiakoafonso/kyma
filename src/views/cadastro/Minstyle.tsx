@@ -57,6 +57,7 @@ btnCadastrar:{
     borderRadius:30,alignItems:'center',
     justifyContent:'center',
     flexDirection:'row',
+    marginBottom:'5%'
 },
 txtEntrar:{
 color: cores.branco,
@@ -137,7 +138,7 @@ WrapperView:{
     width: '80%',
     alignItems:'center',
     //backgroundColor:'pink',
-    //justifyContent:'center'
+    justifyContent:'space-evenly'
 },
 inputWrapperView:{
     height: '80%',
